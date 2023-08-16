@@ -12,6 +12,7 @@ const signToken = (id) => {
   });
 };
 
+
 const createSendToken = (user, statusCode, res) => {
   const token = signToken(user._id);
 
@@ -112,6 +113,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   res.locals.user = currentUser;
   next();
 });
+
 exports.isLoggedIn = async (req, res, next) => {
   if (req.cookies.jwt) {
     try {
